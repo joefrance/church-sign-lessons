@@ -49,7 +49,7 @@ Your browser does not support the canvas element.
 // ctx.fillStyle = "#FF0000"
 // ctx.fillRect(0,0,150,75)
 
-//INIT_STATE()
+INIT_STATE()
 SHOW_MESSAGE(" GOD   IS  LOVE")
 
 function RANDOM_ASCII() {
@@ -71,23 +71,37 @@ function INIT_STATE() {
 }
 
 function SHOW_MESSAGE(msg) {
-    document.getElementById("R1C1").innerText = GET_CHAR_AT(1, 1)
-    document.getElementById("R1C2").innerText = GET_CHAR_AT(1, 2)
-    document.getElementById("R1C3").innerText = GET_CHAR_AT(1, 3)
-    document.getElementById("R1C4").innerText = GET_CHAR_AT(1, 4)
-    document.getElementById("R1C5").innerText = GET_CHAR_AT(1, 5)
 
-    document.getElementById("R2C1").innerText = GET_CHAR_AT(2, 1)
-    document.getElementById("R2C2").innerText = GET_CHAR_AT(2, 2)
-    document.getElementById("R2C3").innerText = GET_CHAR_AT(2, 3)
-    document.getElementById("R2C4").innerText = GET_CHAR_AT(2, 4)
-    document.getElementById("R2C5").innerText = GET_CHAR_AT(2, 5)
+    while(CURSOR_POSITION_MEMORY.R < 4 && CURSOR_POSITION_MEMORY.C < 6) {
 
-    document.getElementById("R3C1").innerText = GET_CHAR_AT(3, 1)
-    document.getElementById("R3C2").innerText = GET_CHAR_AT(3, 2)
-    document.getElementById("R3C3").innerText = GET_CHAR_AT(3, 3)
-    document.getElementById("R3C4").innerText = GET_CHAR_AT(3, 4)
-    document.getElementById("R3C5").innerText = GET_CHAR_AT(3, 5)
+        document.getElementById(`R${CURSOR_POSITION_MEMORY.R}C${CURSOR_POSITION_MEMORY.C}`).innerText = GET_CHAR_AT(CURSOR_POSITION_MEMORY.R, CURSOR_POSITION_MEMORY.C)
+
+        if(CURSOR_POSITION_MEMORY.C < 5) {
+            CURSOR_POSITION_MEMORY.C = CURSOR_POSITION_MEMORY.C + 1
+        } else {
+            CURSOR_POSITION_MEMORY.C = 1
+            CURSOR_POSITION_MEMORY.R = CURSOR_POSITION_MEMORY.R + 1
+        }
+
+    }
+
+    // document.getElementById("R1C1").innerText = GET_CHAR_AT(1, 1)
+    // document.getElementById("R1C2").innerText = GET_CHAR_AT(1, 2)
+    // document.getElementById("R1C3").innerText = GET_CHAR_AT(1, 3)
+    // document.getElementById("R1C4").innerText = GET_CHAR_AT(1, 4)
+    // document.getElementById("R1C5").innerText = GET_CHAR_AT(1, 5)
+
+    // document.getElementById("R2C1").innerText = GET_CHAR_AT(2, 1)
+    // document.getElementById("R2C2").innerText = GET_CHAR_AT(2, 2)
+    // document.getElementById("R2C3").innerText = GET_CHAR_AT(2, 3)
+    // document.getElementById("R2C4").innerText = GET_CHAR_AT(2, 4)
+    // document.getElementById("R2C5").innerText = GET_CHAR_AT(2, 5)
+
+    // document.getElementById("R3C1").innerText = GET_CHAR_AT(3, 1)
+    // document.getElementById("R3C2").innerText = GET_CHAR_AT(3, 2)
+    // document.getElementById("R3C3").innerText = GET_CHAR_AT(3, 3)
+    // document.getElementById("R3C4").innerText = GET_CHAR_AT(3, 4)
+    // document.getElementById("R3C5").innerText = GET_CHAR_AT(3, 5)
 }
 
 function GET_CHAR_AT(row,column) {
